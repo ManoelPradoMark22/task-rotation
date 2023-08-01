@@ -33,7 +33,7 @@ const dynamicTasks = [
 ];
 
 const DAY_ONE = new Date('07/30/2023');
-const TODAY = new Date('08/14/2023');
+const TODAY = new Date();
 
 const Difference_In_Time = TODAY.getTime() - DAY_ONE.getTime();
 const NUMBER_DAYS = Difference_In_Time / (1000 * 3600 * 24);
