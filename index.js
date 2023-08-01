@@ -20,7 +20,7 @@ const people = ["Geovane", "Manoel", "Inácio"];
 const dynamicTasks = [
   {
     id: "bathroom",
-    description: "Limpeza do banheiro"
+    description: "Lavar o banheiro"
   },
   {
     id: "house",
@@ -33,7 +33,7 @@ const dynamicTasks = [
 ];
 
 const DAY_ONE = new Date('07/30/2023');
-const TODAY = new Date('08/21/2023');
+const TODAY = new Date('08/14/2023');
 
 const Difference_In_Time = TODAY.getTime() - DAY_ONE.getTime();
 const NUMBER_DAYS = Difference_In_Time / (1000 * 3600 * 24);
@@ -44,13 +44,18 @@ for(let i=0; i<NUMBER_WEEKS; i++){
   dynamicTasks.push(removedObject);
 }
 
+let nextWeekTask = [...dynamicTasks];
+let removeNextWeekTask = nextWeekTask.shift();
+nextWeekTask.push(removeNextWeekTask);
+
 let dynamicTasksStr = '';
 for(let i=0; i<3; i++) {
-  dynamicTasksStr = `${dynamicTasksStr}<li>${people[i]}: ${dynamicTasks[i].description}</li>`;
+  dynamicTasksStr = `${dynamicTasksStr}<li>${people[i]}: ${dynamicTasks[i].description} | (próxima semana: ${nextWeekTask[i].description})</li>`;
 }
 document.getElementById("dynamicTasks").innerHTML = dynamicTasksStr
 
 const staticTaskIndex = dynamicTasks.findIndex( taskObject => taskObject.id === 'tablecloth');
+const nextWeekStaticTaskIndex = nextWeekTask.findIndex( taskObject => taskObject.id === 'tablecloth');
 
 let initialTasksStr = `${people[staticTaskIndex]}: `;
 let staticTasksStr = '';
@@ -60,3 +65,4 @@ staticTasks.map((task, index) => {
 });
 
 document.getElementById("staticTasks").innerHTML = `${initialTasksStr}${staticTasksStr}`;
+document.getElementById("nextWeekStaticTasks").innerHTML = `Próxima semana: ${people[nextWeekStaticTaskIndex]}`
