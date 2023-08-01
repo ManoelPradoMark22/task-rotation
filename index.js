@@ -1,11 +1,11 @@
 const staticTasks = [
   {
     name: 'trash',
-    description: "Tirar o lixo (segunda, quarta, sexta)"
+    description: "Tirar o lixo🗑️ (2ª, 4ª, 6ª)"
   },
   {
     name: 'filter',
-    description: "Encher o filtro"
+    description: "Encher o filtro🚰"
   },
 ];
 
@@ -20,15 +20,15 @@ const people = ["Geovane", "Manoel", "Inácio"];
 const dynamicTasks = [
   {
     id: "bathroom",
-    description: "Lavar o banheiro"
+    description: "Lavar o banheiro🚽"
   },
   {
     id: "house",
-    description: "Limpeza da casa"
+    description: "Limpeza da casa🏠"
   },
   {
     id: "tablecloth",
-    description: "Lavar a toalha de mesa"
+    description: "Lavar a toalha de mesa🪑"
   },
 ];
 
@@ -50,7 +50,7 @@ nextWeekTask.push(removeNextWeekTask);
 
 let dynamicTasksStr = '';
 for(let i=0; i<3; i++) {
-  dynamicTasksStr = `${dynamicTasksStr}<li>${people[i]}: ${dynamicTasks[i].description} | (próxima semana: ${nextWeekTask[i].description})</li>`;
+  dynamicTasksStr = `${dynamicTasksStr}<li>${people[i]}: 👉${dynamicTasks[i].description} <br>(próxima semana: ${nextWeekTask[i].description})</li>`;
 }
 document.getElementById("dynamicTasks").innerHTML = dynamicTasksStr
 
